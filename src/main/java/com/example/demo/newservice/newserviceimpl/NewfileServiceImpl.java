@@ -7,6 +7,10 @@ import com.example.demo.newservice.NewfileService;
   public  class NewfileServiceImpl implements NewfileService{
 
     private final NewfileRepo rep; 
+
+   public NewfileServiceImpl(NewfileRepo rep){
+       this.rep=rep;
+    }
      @Override
      public NewfileEntity savedata(NewfileEntity newfile){
 
