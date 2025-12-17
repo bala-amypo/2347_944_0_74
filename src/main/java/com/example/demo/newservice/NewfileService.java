@@ -2,5 +2,5 @@ package com.example.demo.newservice;
 
 public interface NewfileService {
     NewfileEntity savedata(NewfileEntity newfile);
-    N
+    NewfileEntity getidval(Long id);
 }
