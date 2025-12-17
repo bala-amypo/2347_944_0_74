@@ -13,17 +13,17 @@ import com.example.demo.newservice.NewfileService;
     }
      @Override
      public NewfileEntity savedata(NewfileEntity newfile){
-
+        return rep.save(newfile);
      }
 
      @Override
      public NewfileEntity getidval(Long id){
-
+         return rep.get(id);
      }
 
      @Override
      public List<NewfileEntity> getall(){
-
+         return rep.
      }
 
      @Override
