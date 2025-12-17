@@ -4,8 +4,8 @@ import java.time.LocalDate;
 
 @Entity
 public class StudentEntity {
-    @id
-    GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int rollno;
