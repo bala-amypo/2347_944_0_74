@@ -1,4 +1,7 @@
 package com.example.demo.newservice;
+import java.util.List;
+
+import com.example.demo.entity.NewfileEntity;
 
 public interface NewfileService {
     NewfileEntity savedata(NewfileEntity newfile);
