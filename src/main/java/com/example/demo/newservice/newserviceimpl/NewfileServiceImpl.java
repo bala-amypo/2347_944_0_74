@@ -28,11 +28,14 @@ import com.example.demo.newservice.NewfileService;
 
      @Override
      public NewfileEntity update(Long id, NewfileEntity newfile){
-          return rep.setName(id,newfile);
+          NewfileEntity existing = getidval(id);
+          existing.setName(newfile.getName());
+          existing.setEmial(newfile.getEmail());
+          return rep.save(existing);
      }
 
      @Override
      public void delete(Long id){
-           return rep.deleteall(id)
+           delete(Long id);
      }
   }
