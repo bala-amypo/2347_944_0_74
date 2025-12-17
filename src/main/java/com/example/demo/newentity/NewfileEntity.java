@@ -1,6 +1,7 @@
 package com.example.demo.newentity;
 
-import jakarta.persistence.Generated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.Email;
