@@ -14,7 +14,7 @@ package com.example.demo.newentity;
     private long id;
     @NotBlank(message = "should not contain spaces")
     private String name;
-    @column(name=unique)
+    @column(name=unique) //@column(unique=true)
      @NotBlank(message = "no blank allowed")
      @Email(message = "invalid format")
     private String email;
