@@ -2,10 +2,14 @@ package com.example.demo.entity;
 
 import java.time.LocalDate;
 
-
+@Entity
 public class StudentEntity {
-    private String name;
+    @id
+    GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int rollno;
+    private String name;
     private LocalDate dob;
     private String email;
     private float cgpa;
