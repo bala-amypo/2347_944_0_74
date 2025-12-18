@@ -36,6 +36,6 @@ import com.example.demo.newservice.NewfileService;
 
      @Override
      public void delete(Long id){
-           rep.delete(Long id);
+           rep.deletebyId(Long id);
      }
   }

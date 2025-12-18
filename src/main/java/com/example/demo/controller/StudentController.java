@@ -29,3 +29,4 @@ public class StudentController {
     @GetMapping("/getid/{id}")
     public  StudentEntity getIdVal(@PathVariable int id){
         return src.id(id);
+    }
