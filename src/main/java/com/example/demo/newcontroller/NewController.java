@@ -23,7 +23,7 @@ public class NewController {
 
     @PostMapping
     public ResponseEntity<Student> createStudent(@Valid @RequestBodyStudent service) {
-        return new ResponseEntity<>(service.saveStudent(student),HttpStatus.CREATED);
+        return new ResponseEntity<String>(service.saveStudent(student),HttpStatus.CREATED);
     }
 
     @GetMapping
