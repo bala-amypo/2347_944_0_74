@@ -1,41 +1,44 @@
-// package com.example.demo.newcontroller;
+package com.example.demo.newcontroller;
 
-// import java.util.List;
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
-// import org.springframework.beans.factory.annotation.Autowired;
-// import org.springframework.web.bind.annotation.DeleteMapping;
-// import org.springframework.web.bind.annotation.GetMapping;
-// import org.springframework.web.bind.annotation.PathVariable;
-// import org.springframework.web.bind.annotation.PostMapping;
-// import org.springframework.web.bind.annotation.PutMapping;
-// import org.springframework.web.bind.annotation.RequestBody;
-// import org.springframework.web.bind.annotation.RestController;
+import com.example.demo.entity.Student;
+import com.example.demo.newentity.NewfileEntity;
+import com.example.demo.newservice.NewfileService;
 
-// import com.example.demo.newentity.NewfileEntity;
-// import com.example.demo.newservice.NewfileService;
-// @RestController
-// public class NewController {
-// @Autowired
-// NewfileService src;
-// @PostMapping("/post")
+import java.util.List;
 
-//     public NewfileEntity postdata(@RequestBody NewfileEntity st){
-//         return src.savedata(st);
-//     }
-//     @GetMapping("/get")
-//     public List<NewfileEntity>getdata(){
-//         return src.retdata();
-//     }
-//     @GetMapping("/get/{id}")
-//     public NewfileEntity getIdval(@PathVariable int id){
-//         return src.id(id);
-//     }
-//     @PutMapping("/updatedata/{id}")
-//     public NewfileEntity update(@PathVariable int id,@RequestBody NewfileEntity st){
-//         return src.updateStudent(id,st);
-//     }
-//     @DeleteMapping("/delete/{id}")
-//     public NewfileEntity deleteStudent(@PathVariable int id){
-//         return src.deleteStudent(id);
-//     }
-// }
+@RestController
+@RequestMapping("/students")
+public class NewfileController {
+
+    private final NewfileService service;
+
+    public NewfileController(NewfileService service) {
+        this.service = service;
+    }
+
+    @PostMapping
+    public ResponseEntity <Student> createStudent(@Valid @RequestBodyStudent service) {
+        return new ResponseEntity<String>(service.saveStudent(student),HttpStatus.CREATED);
+    }
+
+    @GetMapping
+    public List<NewfileEntity> getall() {
+        return service.getall();
+    }
+
+    @GetMapping("/{id}")
+    public NewfileEntity getStudent(@PathVariable Long id) {
+        return service.getidval(id);
+    }
+
+    @PutMapping("/{id}")
+    public NewfileEntity updateStudent(@PathVariable Long id,
+    @Valid @RequestBody Student student) {
+        return service.update(id, student);
+    }
+}
