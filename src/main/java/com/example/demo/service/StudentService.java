@@ -2,28 +2,28 @@ package com.example.demo.service;
 
 import java.util.*;
 import org.springframework.stereotype.StudentService;
-import com.example.demo.entity.Studententity;
+import com.example.demo.entity.StudentEntity;
 @Service
-public class Studentservice {
-Map<Integer,Studententity> mp=new HashMap<>();
-    public Studententity savedata(Studententity st){
+public class StudentService {
+Map<Integer,StudentEntity> mp=new HashMap<>();
+    public StudentEntity savedata(StudentEntity st){
         mp.put(st.getId(),st);
         return st;
     }
-    public List<Studententity> retdata() {
+    public List<StudentEntity> retdata() {
          return new ArrayList<>(mp.values());
     }
-    public Studententity id(int id) {
+    public StudentEntity id(int id) {
         
        // throw new UnsupportedOperationException("Unimplemented method 'id'");
        return mp.get(id);
     }
    
-    public Studententity updateStudent(int id, Studententity st) {
+    public StudentEntity updateStudent(int id, StudentEntity st) {
      mp.replace(id,st);
      return mp.get(id);
     }
-    public Studententity deleteStudent(int id) {
+    public StudentEntity deleteStudent(int id) {
        return mp.remove(id);
     }
 }
