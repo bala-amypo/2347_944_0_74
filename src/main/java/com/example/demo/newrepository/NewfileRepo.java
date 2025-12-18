@@ -1,9 +1,9 @@
-package com.example.demo.newrepository;
+// package com.example.demo.newrepository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+// import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.example.demo.newentity.NewfileEntity;
+// import com.example.demo.newentity.NewfileEntity;
 
-public interface NewfileRepo extends JpaRepository<NewfileEntity,Long>{
+// public interface NewfileRepo extends JpaRepository<NewfileEntity,Long>{
     
-}
+//}

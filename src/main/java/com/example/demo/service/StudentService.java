@@ -1,12 +1,29 @@
-// package com.example.demo.service;
-// import java.util.List;
+package com.example.demo.service;
 
-// import java.util.Optional;
-// import com.example.demo.entity.StudentEntity;
-
-// public interface StudentService{
-//     StudentEntity postStudent(StudentEntity st);
-//     List<StudentEntity> getdata();
-//     StudentEntity updatedata(int id,StudentEntity std);
-//     String deletedata(int id);
-//}
+import java.util.*;
+import org.springframework.stereotype.StudentService;
+import com.example.demo.entity.Studententity;
+@Service
+public class Studentservice {
+Map<Integer,Studententity> mp=new HashMap<>();
+    public Studententity savedata(Studententity st){
+        mp.put(st.getId(),st);
+        return st;
+    }
+    public List<Studententity> retdata() {
+         return new ArrayList<>(mp.values());
+    }
+    public Studententity id(int id) {
+        
+       // throw new UnsupportedOperationException("Unimplemented method 'id'");
+       return mp.get(id);
+    }
+   
+    public Studententity updateStudent(int id, Studententity st) {
+     mp.replace(id,st);
+     return mp.get(id);
+    }
+    public Studententity deleteStudent(int id) {
+       return mp.remove(id);
+    }
+}
