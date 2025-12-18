@@ -1,11 +1,11 @@
 package com.example.demo.newcontroller;
 
 import jakarta.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.demo.entity.StudentEntity;
 import com.example.demo.newentity.NewfileEntity;
 import com.example.demo.newservice.NewfileService;
 
@@ -22,8 +22,11 @@ public class NewController {
     }
 
     @PostMapping
-    public ResponseEntity<Student> createStudent(@Valid @RequestBodyStudent service) {
-        return new ResponseEntity<String>(service.saveStudent(student),HttpStatus.CREATED);
+    public ResponseEntity<NewfileEntity> createStudent(
+            @Valid @RequestBody NewfileEntity student) {
+
+        NewfileEntity saved = service.savedata(student);
+        return new ResponseEntity<>(saved, HttpStatus.CREATED);
     }
 
     @GetMapping
@@ -37,8 +40,16 @@ public class NewController {
     }
 
     @PutMapping("/{id}")
-    public NewfileEntity updateStudent(@PathVariable Long id,
-    @Valid @RequestBody Student student) {
+    public NewfileEntity updateStudent(
+            @PathVariable Long id,
+            @Valid @RequestBody NewfileEntity student) {
+
         return service.update(id, student);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteStudent(@PathVariable Long id) {
+        service.delete(id);
+        return ResponseEntity.ok("Deleted successfully");
     }
 }
